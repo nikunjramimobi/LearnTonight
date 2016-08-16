@@ -1,0 +1,94 @@
+//
+//  PrefixHeader.pch
+//  LearnTonight
+//
+//  Created by Mag_Mini_1 on 27/07/16.
+//  Copyright © 2016 Mag_Mini_1. All rights reserved.
+//
+
+//
+//  PrefixHeader.pch
+//  BLE Scanner
+//
+//  Created by Ashok Domadiya on 10/07/15.
+//  Copyright (c) 2015 Bluepixel Technologies LLP. All rights reserved.
+//
+
+
+#import <Availability.h>
+
+#ifndef __IPHONE_5_0
+#warning "This project uses features only available in iOS SDK 5.0 and later."
+#endif
+
+
+
+#ifdef __OBJC__
+
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "AppDelegate.h"
+//#import "LearnTonight-Swift.h"
+#import "InterestedCategoriesViewController.h"
+#import "TPKeyboardAvoidingScrollView.h"
+#import "MBProgressHUD.h"
+#import "AppUtils.h"
+#import "KeyUtils.h"
+#import "NSDictionary+Misc.h"
+#import "WebServiceActor.h"
+#import "WebServiceUtils.h"
+#import "UIImage+animatedGIF.h"
+#import "UIAlertViewWithBlocks.h"
+#import "ModelClass.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+#import "SlideNavigationController.h"
+#import "LeftMenuViewController.h"
+#import "CDSideBarController.h"
+
+#endif
+
+#define WEB_SERVICE_TIMEOUT 60. //was 5
+
+#define MINLENGTH 10
+
+#define AppDelegate_ ((AppDelegate *)[UIApplication sharedApplication].delegate)
+
+
+#define TEST( _name, _method ) \
+if ([elementName isEqualToString:@ _name] ) \
+[character _method:currentElementText]; else
+#define ENDTEST { /* empty */ }
+
+#ifdef DEBUG
+#define DLog(...) NSLog(@"%@-->%s@%i: %@",[[NSString stringWithUTF8String:__FILE__] lastPathComponent], __PRETTY_FUNCTION__, __LINE__, [NSString stringWithFormat:__VA_ARGS__])
+
+#define ALog(...) [[NSAssertionHandler currentHandler] handleFailureInFunction:[NSString stringWithCString:__PRETTY_FUNCTION__ encoding:NSUTF8StringEncoding] file:[NSString stringWithCString:__FILE__ encoding:NSUTF8StringEncoding] lineNumber:__LINE__ description:__VA_ARGS__]
+
+#else
+#define DLog(...) do { } while (0)
+#ifndef NS_BLOCK_ASSERTIONS
+#define NS_BLOCK_ASSERTIONS
+#endif
+#define ALog(...) NSLog(@"%s %@", __PRETTY_FUNCTION__, [NSString stringWithFormat:__VA_ARGS__])
+#endif
+
+#define ZAssert(condition, ...) do { if (!(condition)) { ALog(__VA_ARGS__); }} while(0)
+
+#define FORMAT(format, ...) [NSString stringWithFormat:(format), ##__VA_ARGS__]
+
+
+#define theamcolor_green [UIColor colorWithRed:(148)/255.0 green:(194)/255.0 blue:(25)/255.0 alpha:1]
+#define txtPlaceholdercolor [UIColor colorWithRed:(214)/255.0 green:(247)/255.0 blue:(127)/255.0 alpha:1]
+
+#define theamcolor [UIColor colorWithRed:(196)/255.0 green:(196)/255.0 blue:(196)/255.0 alpha:1]
+
+#define UIColorFromRGB(rgbValue) [UIColor \
+colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
+green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \
+blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
+#define PROFILE_IMAGE_PATH          @"ProfileImagePath"
+#define Font(fontName,fontSize)         [UIFont fontWithName:fontName size:fontSize];
+
+
+#define APIURL @"http://206.72.192.56/LearnTonight/"
